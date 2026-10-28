@@ -6,6 +6,7 @@
   },
   "rewrites": [
     { "source": "/", "destination": "/jzz.html" },
+    { "source": "/index.html", "destination": "/jzz.html" },
     { "source": "/zz.html", "destination": "/jzz.html" },
     { "source": "/mm1.html", "destination": "/jmm1.html" },
     { "source": "/video-room.html", "destination": "/jvideo-room.html" },
