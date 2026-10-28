@@ -1,0 +1,10 @@
+import fs from 'fs';
+const html = fs.readFileSync('C:/Users/Administrator/Desktop/miba/new-main-deploy/index.html', 'utf8');
+const styleAt = html.indexOf('id=site-phone-hold');
+console.log(html.slice(styleAt, styleAt + 180));
+const start = html.indexOf('(function(){var data=window.__SITE_PHONES');
+const end = html.indexOf('</script>', start);
+const script = html.slice(start, end);
+new Function(script);
+console.log('reveals', script.includes('site-phones-ready'));
+console.log('holds originals', html.includes('visibility:hidden'));
