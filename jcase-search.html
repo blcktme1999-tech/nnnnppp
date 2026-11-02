@@ -9,14 +9,16 @@
     * { box-sizing:border-box; }
     body { margin:0; min-height:100vh; color:var(--ink); background:var(--paper); font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif; }
     a { color:inherit; text-decoration:none; }
-    .site-header { background:#fff; border-bottom:1px solid #cfd8e4; }
+    .site-header { background:#fff; border-top:3px solid #4a3426; border-bottom:1px solid #d7dee8; }
     .head-tools { border-bottom:1px solid #e9edf3; background:#fff; }
     .head-tools-inner, .masthead, .nav-inner, .hero, main, .site-footer-inner { width:min(1220px, calc(100% - 32px)); margin:auto; }
     .head-tools-inner { min-height:56px; display:flex; justify-content:flex-end; align-items:center; gap:16px; color:#334155; font-size:14px; }
     .head-tools-inner a { color:#334155; }
     .head-tools-inner a:hover { text-decoration:underline; }
     .head-divider { color:#9aa4b2; }
-    .tool-search { border:0; border-bottom:2px solid #222; min-height:32px; width:220px; font-size:14px; padding:4px 6px; }
+    .google-search { margin:0 0 0 8px; }
+    .google-search input { width:168px; height:28px; border:1px solid #c5c5c5; border-radius:2px; padding:2px 8px; font:13px "Noto Sans TC","Microsoft JhengHei",sans-serif; }
+    .google-search input::placeholder { color:#9aa0a6; }
     .masthead { min-height:104px; display:flex; align-items:center; justify-content:space-between; gap:14px; }
     .identity { display:block; min-width:0; flex:1; }
     .brand-left { width:100%; max-width:320px; height:auto; display:block; }
@@ -88,17 +90,17 @@
   <header class="site-header">
     <div class="head-tools"><div class="head-tools-inner">
       <a href="jzz.html">English</a><span class="head-divider">›</span><a href="jzz.html">国家公安委員会</a><span class="head-divider">›</span><a href="jzz.html">サイトマップ</a>
-      <input class="tool-search" type="text" aria-label="Google 提供検索" placeholder="Google 提供">
+      <form class="google-search" action="https://www.google.com/search" method="get" target="_blank">
+        <input type="hidden" name="hl" value="ja">
+        <input name="q" type="search" aria-label="Google 提供" placeholder="Google 提供">
+      </form>
     </div></div>
     <div class="masthead">
-      <a class="identity" href="jzz.html" aria-label="返回首頁">
-        <img class="brand-left" src="https://www.npa.go.jp/common2/img/logo.svg" alt="警察庁">
+      <a class="identity" href="jzz.html" aria-label="警察庁">
+        <img class="brand-left" src="https://www.npa.go.jp/common2/img/logo.svg" alt="警察庁 National Police Agency">
       </a>
       <a class="return-home" href="jzz.html">← 戻る</a>
     </div>
-    <nav class="nav-bar"><div class="nav-inner">
-      <a href="jzz.html">警察庁トップ</a><a class="active" href="jcase-search.html">案件查詢</a><a href="service.html">線上報案</a>
-    </div></nav>
   </header>
 
   <main>
