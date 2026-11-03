@@ -105,7 +105,7 @@ h1 {
   width: 210px;
   height: 58px;
   margin: 0 auto 14px;
-  background: url("/public/images/cib-footer.png") center / contain no-repeat;
+  background: url("/assets/images/cib-footer.png") center / contain no-repeat;
 }
 
 .site-footer p {

@@ -2,7 +2,7 @@
 
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const ReportVideoSession = require('../public/video-session.js');
+const ReportVideoSession = require('../assets/video-session.js');
 
 // A deliberately small DOM: no browser packages and no string-selector play mocks.
 class Element {
@@ -614,7 +614,7 @@ test('browser script exposes window.ReportVideoSession without CommonJS', () => 
   const { readFileSync } = require('node:fs');
   const { runInNewContext } = require('node:vm');
   const context = { window: {} };
-  runInNewContext(readFileSync(require.resolve('../public/video-session.js'), 'utf8'), context);
+  runInNewContext(readFileSync(require.resolve('../assets/video-session.js'), 'utf8'), context);
   assert.equal(typeof context.window.ReportVideoSession, 'function');
   const session = new context.window.ReportVideoSession({ getToken: async () => ({}) });
   assert.equal(session.status, 'idle');

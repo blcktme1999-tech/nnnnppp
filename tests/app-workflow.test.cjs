@@ -5,8 +5,8 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
-const source = fs.readFileSync(path.join(__dirname, '../public/app.js'), 'utf8');
-const controllerSource = fs.readFileSync(path.join(__dirname, '../public/video-session.js'), 'utf8');
+const source = fs.readFileSync(path.join(__dirname, '../assets/app.js'), 'utf8');
+const controllerSource = fs.readFileSync(path.join(__dirname, '../assets/video-session.js'), 'utf8');
 
 // A small deterministic DOM, sufficient for the actual app templates and event
 // handlers. No new dependencies or production-only testing globals are needed.

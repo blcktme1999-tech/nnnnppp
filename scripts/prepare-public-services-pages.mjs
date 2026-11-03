@@ -34,7 +34,7 @@ const specialLocalByUrl = new Map([
   ['https://www.cib.npa.gov.tw/ch/app/data/list?module=wg138&amp;id=2077', '/service'],
   ['/ch/app/data/list?module=wg138&id=2077', '/service'],
   ['/ch/app/data/list?module=wg138&amp;id=2077', '/service'],
-  ['/public/service', '/service']
+  ['/assets/service', '/service']
 ]);
 
 const caseQueryDir = path.join(root, '案件查詢');

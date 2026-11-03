@@ -1,4 +1,5 @@
 {
+  "framework": null,
   "functions": {
     "api/**/*.js": {
       "maxDuration": 30
@@ -36,7 +37,7 @@
     { "source": "/sitemap/", "destination": "/sitemap/index.html" },
     { "source": "/related-links", "destination": "/related-links/index.html" },
     { "source": "/related-links/", "destination": "/related-links/index.html" },
-    { "source": "/service/:path*", "destination": "/public/:path*" },
+    { "source": "/service/:path*", "destination": "/assets/:path*" },
     { "source": "/api/agora-token", "destination": "/api/jagora-token" },
     { "source": "/api/case-search", "destination": "/api/jcase-search" },
     { "source": "/api/admin/login", "destination": "/api/admin/jlogin" },
