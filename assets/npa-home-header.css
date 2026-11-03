@@ -15,19 +15,20 @@
 #npaHomeHeader .gnavBox { display:flex; justify-content:flex-end; gap:4px; list-style:none; margin:0; padding:0; }
 #npaHomeHeader .gnav-btn { position:static; appearance:none; border:0; background:transparent; color:#333; font-weight:700; padding:14px 10px 12px; cursor:pointer; font:inherit; white-space:nowrap; border-bottom:3px solid transparent; }
 #npaHomeHeader .gnav-btn[aria-expanded="true"] { background:#0A2F50; color:#fff; }
-#npaHomeHeader .snavBox { display:none; position:absolute; left:0; right:0; top:100%; width:100%; box-sizing:border-box; margin:0; padding:28px 36px 22px; background:#0A2F50; z-index:20; list-style:none; }
+#npaHomeHeader .snavBox { display:none; position:absolute; left:0; right:0; top:100%; width:100%; box-sizing:border-box; margin:0; padding:2rem 40px 4.8rem; background:#0A2F50; z-index:20; list-style:none; }
 #npaHomeHeader .snavBox[aria-hidden="false"] { display:block; }
-#npaHomeHeader .snavMenu { display:grid; grid-template-columns:210px minmax(0,1fr); grid-template-areas:"title links" "close links"; column-gap:0; row-gap:18px; width:100%; color:#fff; }
-#npaHomeHeader .snavBox-list-link { grid-area:title; align-self:start; padding:4px 22px 0 0; border-right:1px solid rgba(255,255,255,.55); color:#fff; font-weight:700; }
+#npaHomeHeader .snavMenu { display:grid; grid-template-columns:230px minmax(0,1fr); align-items:stretch; width:100%; color:#fff; }
+#npaHomeHeader .snavBox-list-link { align-self:start; padding:2px 28px 0 0; border-right:1px solid rgba(255,255,255,.7); color:#fff; font-size:1.7rem; font-weight:700; line-height:1.6; }
 #npaHomeHeader .snavBox-list-link-text::after { content:" ›"; font-weight:400; }
-#npaHomeHeader .snavBox2nd-inner { grid-area:links; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px 28px; margin:0; padding:0 0 0 28px; list-style:none; }
-#npaHomeHeader .snavBox2nd-list-link { color:#fff; }
-#npaHomeHeader .snavBox2nd-list-link::before { content:"›"; display:inline-block; margin-right:8px; }
+#npaHomeHeader .snavBox2nd-inner { column-count:3; column-gap:3.2rem; margin:0; padding:0 0 0 2.2rem; list-style:none; }
+#npaHomeHeader .snavBox2nd-list { break-inside:avoid; margin:0 0 1.15rem; }
+#npaHomeHeader .snavBox2nd-list-link { color:#fff; font-size:1.7rem; line-height:1.7; }
+#npaHomeHeader .snavBox2nd-list-link::before { content:"›"; display:inline-block; width:1.1em; }
 #npaHomeHeader .snavBox2nd-list-link:hover { text-decoration:underline; }
-#npaHomeHeader .snavCloseBtn { grid-area:close; justify-self:end; align-self:end; background:transparent; border:0; color:#fff; cursor:pointer; font:inherit; }
+#npaHomeHeader .snavCloseBtn { position:absolute; right:36px; bottom:18px; background:transparent; border:0; color:#fff; cursor:pointer; font-size:1.5rem; line-height:1; }
 @media (max-width: 800px) {
   #npaHomeHeader .gnavBox { overflow:auto; justify-content:flex-start; }
-  #npaHomeHeader .snavMenu { grid-template-columns:1fr; grid-template-areas:"title" "links" "close"; }
+  #npaHomeHeader .snavMenu { grid-template-columns:1fr; }
   #npaHomeHeader .snavBox-list-link { border-right:0; padding-right:0; }
-  #npaHomeHeader .snavBox2nd-inner { grid-template-columns:1fr; padding-left:0; }
+  #npaHomeHeader .snavBox2nd-inner { column-count:1; padding-left:0; }
 }

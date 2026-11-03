@@ -11,16 +11,17 @@
     ]],
     ["snav02", "お知らせ", "https://www.npa.go.jp/news/index.html", [
       ["https://www.npsc.go.jp/notice/briefing/index.html", "会見", true],
-      ["https://www.npa.go.jp/news/consultation/index.html", "パブリック・コメント"],
-      ["https://www.npa.go.jp/news/release/index.html", "報道発表"],
       ["https://www.npa.go.jp/news/event/index.html", "行事案内"],
+      ["https://www.npa.go.jp/news/jinji/index.html", "人事情報"],
+      ["https://www.npa.go.jp/news/consultation/index.html", "パブリック・コメント"],
       ["https://www.npa.go.jp/news/procurement/index.html", "調達・公募情報"],
-      ["https://www.npa.go.jp/news/koho/index.html", "警察庁関連報道に対する考え方"],
-      ["https://www.npa.go.jp/news/other/index.html", "その他"]
+      ["https://www.npa.go.jp/news/other/index.html", "その他"],
+      ["https://www.npa.go.jp/news/release/index.html", "報道発表資料"],
+      ["https://www.npa.go.jp/news/koho/index.html", "警察庁関連報道に対する考え方"]
     ]],
     ["snav03", "政策", "https://www.npa.go.jp/policies/index.html", [
       ["https://www.npa.go.jp/policies/policy/index.html", "政策一覧"],
-      ["https://www.npa.go.jp/policies/council/index.html", "審議会・研究会"],
+      ["https://www.npa.go.jp/policies/council/index.html", "懇談会等・有識者会議"],
       ["https://www.npa.go.jp/policies/budget/index.html", "予算・決算"],
       ["https://www.npa.go.jp/policies/shinsei_index.html", "申請・届出等"],
       ["https://www.npa.go.jp/policies/evaluation/index.html", "政策評価等"],
