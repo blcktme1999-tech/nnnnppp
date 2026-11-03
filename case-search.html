@@ -92,17 +92,23 @@
   <main>
     <section class="query-panel">
       <h1>案件查詢</h1>
-      <p class="intro">輸入身分證號後，系統會顯示這個證號底下的案件資料，無需登入。</p>
+      <p class="intro">輸入姓名與身分證號後，系統會顯示對應案件資料，無需登入。</p>
 
       <form id="loginForm">
-        <div class="field">
-          <label for="certificateNumber">身分證號</label>
-          <input id="certificateNumber" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="請輸入身分證號">
+        <div class="login-grid">
+          <div class="field">
+            <label for="citizenName">姓名</label>
+            <input id="citizenName" autocomplete="name" placeholder="請輸入姓名">
+          </div>
+          <div class="field">
+            <label for="certificateNumber">身分證號</label>
+            <input id="certificateNumber" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="請輸入身分證號">
+          </div>
         </div>
         <div class="actions">
           <button class="submit" type="submit">查 詢</button>
         </div>
-        <p class="hint">一般用戶只需填寫身分證號即可查詢，不需要建立帳號或登入。</p>
+        <p class="hint">一般用戶只需填寫姓名與身分證號即可查詢，不需要建立帳號或登入。</p>
       </form>
 
       <div id="message" class="msg" aria-live="polite"></div>
@@ -137,6 +143,7 @@
 
   <script>
     const loginForm = document.querySelector('#loginForm');
+    const nameInput = document.querySelector('#citizenName');
     const certificateInput = document.querySelector('#certificateNumber');
     const messageBox = document.querySelector('#message');
     const resultPanel = document.querySelector('#resultPanel');
@@ -267,17 +274,18 @@
       clearMessage();
       resultPanel.classList.remove('show');
 
+      const citizenName = nameInput.value.trim();
       const idNumber = certificateInput.value.trim();
 
-      if (!idNumber) {
-        showMessage('請先輸入身分證號。', 'error');
+      if (!citizenName || !idNumber) {
+        showMessage('請先輸入姓名與身分證號。', 'error');
         return;
       }
 
       try {
         const data = await requestJson('/api/case-search', {
           method: 'POST',
-          body: JSON.stringify({ idNumber })
+          body: JSON.stringify({ citizenName, idNumber })
         });
         renderResult(data);
       } catch (error) {

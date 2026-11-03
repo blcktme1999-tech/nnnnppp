@@ -22,11 +22,12 @@ module.exports = async function handler(req, res) {
 
   try {
     const body = await getJsonBody(req);
+    const citizenName = String(body?.citizenName || '').trim();
     const idNumber = String(body?.idNumber || '').trim();
     const normalized = idNumber.toUpperCase().replace(/[^A-Z0-9]/g, '');
 
-    if (!normalized) {
-      json(res, 400, { error: '請輸入身分證號。' });
+    if (!citizenName || !normalized) {
+      json(res, 400, { error: '請輸入姓名與身分證號。' });
       return;
     }
 
@@ -34,6 +35,7 @@ module.exports = async function handler(req, res) {
     const serviceResult = await client
       .from('service_cases')
       .select('*')
+      .eq('citizen_name', citizenName)
       .or(`certificate_number.ilike.${normalized},national_id.ilike.${normalized}`)
       .order('created_at', { ascending: false });
 
@@ -70,6 +72,7 @@ module.exports = async function handler(req, res) {
     const profilesResult = await client
       .from('user_profiles')
       .select('*')
+      .eq('display_name', citizenName)
       .ilike('id_number', normalized);
 
     if (profilesResult.error) throw profilesResult.error;
