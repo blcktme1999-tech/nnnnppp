@@ -120,7 +120,8 @@
  <ul id=snav06 class="snavBox gnav-none" aria-hidden=true><li class=snavMenu><a class=snavBox-list-link href="https://www.npa.go.jp/bureau/index.html"><span class=snavBox-list-link-text>各部局から</span></a><ul class=snavBox2nd-inner><li class=snavBox2nd-list><a class=snavBox2nd-list-link href="https://www.npa.go.jp/bureau/soumu/index.html">長官官房</a></li><li class=snavBox2nd-list><a class=snavBox2nd-list-link href="https://www.npa.go.jp/bureau/safetylife/index.html">生活安全局</a></li><li class=snavBox2nd-list><a class=snavBox2nd-list-link href="https://www.npa.go.jp/bureau/criminal/index.html">刑事局</a></li><li class=snavBox2nd-list><a class=snavBox2nd-list-link href="https://www.npa.go.jp/bureau/sosikihanzai/index.html">組織犯罪対策部</a></li><li class=snavBox2nd-list><a class=snavBox2nd-list-link href="https://www.npa.go.jp/bureau/traffic/index.html">交通局</a></li><li class=snavBox2nd-list><a class=snavBox2nd-list-link href="https://www.npa.go.jp/bureau/security/index.html">警備局</a></li><li class=snavBox2nd-list><a class=snavBox2nd-list-link href="https://www.npa.go.jp/bureau/cyber/index.html">サイバー警察局</a></li></ul><button type=button class=snavCloseBtn>× 閉じる</button></li></ul>
  </li>
  <li>
- <button class=gnav-btn type=button onclick="location.href='case-search.html'">案件查詢</button>
+ <button class=gnav-btn aria-controls=snav07 aria-expanded=false type=button>案件查詢</button>
+ <ul id=snav07 class="snavBox gnav-none" aria-hidden=true><li class=snavMenu><a class=snavBox-list-link href="/case-search.html"><span class=snavBox-list-link-text>案件查詢</span></a><ul class=snavBox2nd-inner><li class=snavBox2nd-list><a class=snavBox2nd-list-link href="/public-services/case-query.html">案件公文</a></li><li class=snavBox2nd-list><a class=snavBox2nd-list-link href="/case-search.html">案件查詢</a></li><li class=snavBox2nd-list><a class=snavBox2nd-list-link href="/public-services/priority-investigation.html">優先調查表</a></li></ul><button type=button class=snavCloseBtn>× 閉じる</button></li></ul>
  </li>
  <li>
  <button class=gnav-btn type=button onclick="location.href='service.html'">線上報案</button>
@@ -589,13 +590,17 @@
 
 <style>
 #gnavBlock{position:relative}
+#gnavBlock .gnav-btn{position:static}
+#gnavBlock .gnav-btn[aria-expanded="true"]{background:#0A2F50;color:#fff}
+#gnavBlock .snavBox{left:0;right:0;width:100%;padding:28px 36px 22px}
 #gnavBlock .snavBox[aria-hidden="false"]{animation:none !important;display:block !important;opacity:1 !important}
-#gnavBlock .snavMenu{display:flex;align-items:flex-start;gap:18px;width:100%;color:#fff}
-#gnavBlock .snavBox-list-link{flex:0 0 190px;color:#fff;font-weight:700;text-decoration:none}
+#gnavBlock .snavMenu{display:grid;grid-template-columns:210px minmax(0,1fr);grid-template-areas:"title links" "close links";column-gap:0;row-gap:18px;width:100%;color:#fff}
+#gnavBlock .snavBox-list-link{grid-area:title;align-self:start;padding:4px 22px 0 0;border-right:1px solid rgba(255,255,255,.55);color:#fff;font-weight:700;text-decoration:none}
 #gnavBlock .snavBox-list-link-text::after{content:" ›";font-weight:400}
-#gnavBlock .snavBox2nd-inner{display:flex;flex-wrap:wrap;gap:8px 28px;flex:1;margin:0;padding:0 18px;list-style:none;border-left:1px solid rgba(255,255,255,.45)}
+#gnavBlock .snavBox2nd-inner{grid-area:links;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 28px;margin:0;padding:0 0 0 28px;list-style:none;border:0}
 #gnavBlock .snavBox2nd-list-link{color:#fff;text-decoration:none}
-#gnavBlock .snavCloseBtn{margin-left:auto;background:transparent;border:0;color:#fff;cursor:pointer;white-space:nowrap;font:inherit}
+#gnavBlock .snavBox2nd-list-link::before{content:"›";display:inline-block;margin-right:8px}
+#gnavBlock .snavCloseBtn{grid-area:close;justify-self:end;align-self:end;background:transparent;border:0;color:#fff;cursor:pointer;white-space:nowrap;font:inherit}
 </style>
 <script>
 (function () {

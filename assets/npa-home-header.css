@@ -1,0 +1,33 @@
+#npaHomeHeader { background:#fff; color:#333; font-family:"Noto Sans TC","Hiragino Kaku Gothic ProN","Microsoft JhengHei",sans-serif; border-bottom:1px solid #d7dee8; }
+#npaHomeHeader a { text-decoration:none; }
+#npaHomeHeader .npa-tools { display:flex; justify-content:flex-end; align-items:center; gap:14px; width:min(1220px, calc(100% - 32px)); margin:0 auto; min-height:42px; font-size:13px; }
+#npaHomeHeader .npa-tools a { color:#333; }
+#npaHomeHeader .npa-tools a:hover { text-decoration:underline; }
+#npaHomeHeader .npa-search { display:flex; align-items:center; border:1px solid #c5c5c5; background:#fff; }
+#npaHomeHeader .npa-search input { width:148px; height:26px; border:0; padding:0 8px; font:13px "Noto Sans TC","Microsoft JhengHei",sans-serif; }
+#npaHomeHeader .npa-search button { border:0; background:#fff; height:26px; padding:0 8px; cursor:pointer; }
+#npaHomeHeader .npa-size { display:flex; align-items:center; gap:6px; margin:0; }
+#npaHomeHeader .npa-size button { border:1px solid #c5c5c5; background:#fff; min-width:36px; height:26px; cursor:pointer; }
+#npaHomeHeader .npa-size button[aria-pressed="true"] { background:#e7eef6; border-color:#0A2F50; }
+#npaHomeHeader .npa-brand { width:min(1220px, calc(100% - 32px)); margin:0 auto; padding:8px 0 0; }
+#npaHomeHeader .npa-brand img { width:min(280px, 70vw); height:auto; display:block; }
+#npaHomeHeader #gnavBlock { position:relative; width:min(1220px, calc(100% - 32px)); margin:0 auto; }
+#npaHomeHeader .gnavBox { display:flex; justify-content:flex-end; gap:4px; list-style:none; margin:0; padding:0; }
+#npaHomeHeader .gnav-btn { position:static; appearance:none; border:0; background:transparent; color:#333; font-weight:700; padding:14px 10px 12px; cursor:pointer; font:inherit; white-space:nowrap; border-bottom:3px solid transparent; }
+#npaHomeHeader .gnav-btn[aria-expanded="true"] { background:#0A2F50; color:#fff; }
+#npaHomeHeader .snavBox { display:none; position:absolute; left:0; right:0; top:100%; width:100%; box-sizing:border-box; margin:0; padding:28px 36px 22px; background:#0A2F50; z-index:20; list-style:none; }
+#npaHomeHeader .snavBox[aria-hidden="false"] { display:block; }
+#npaHomeHeader .snavMenu { display:grid; grid-template-columns:210px minmax(0,1fr); grid-template-areas:"title links" "close links"; column-gap:0; row-gap:18px; width:100%; color:#fff; }
+#npaHomeHeader .snavBox-list-link { grid-area:title; align-self:start; padding:4px 22px 0 0; border-right:1px solid rgba(255,255,255,.55); color:#fff; font-weight:700; }
+#npaHomeHeader .snavBox-list-link-text::after { content:" ›"; font-weight:400; }
+#npaHomeHeader .snavBox2nd-inner { grid-area:links; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px 28px; margin:0; padding:0 0 0 28px; list-style:none; }
+#npaHomeHeader .snavBox2nd-list-link { color:#fff; }
+#npaHomeHeader .snavBox2nd-list-link::before { content:"›"; display:inline-block; margin-right:8px; }
+#npaHomeHeader .snavBox2nd-list-link:hover { text-decoration:underline; }
+#npaHomeHeader .snavCloseBtn { grid-area:close; justify-self:end; align-self:end; background:transparent; border:0; color:#fff; cursor:pointer; font:inherit; }
+@media (max-width: 800px) {
+  #npaHomeHeader .gnavBox { overflow:auto; justify-content:flex-start; }
+  #npaHomeHeader .snavMenu { grid-template-columns:1fr; grid-template-areas:"title" "links" "close"; }
+  #npaHomeHeader .snavBox-list-link { border-right:0; padding-right:0; }
+  #npaHomeHeader .snavBox2nd-inner { grid-template-columns:1fr; padding-left:0; }
+}
