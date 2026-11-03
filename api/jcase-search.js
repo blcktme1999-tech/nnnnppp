@@ -1,4 +1,18 @@
-const { json, getJsonBody, methodNotAllowed, signInAdmin } = require('./_lib/jadmin');
+const { createClient } = require('@supabase/supabase-js');
+const { json, getJsonBody, methodNotAllowed } = require('./_lib/jadmin');
+
+function serviceClient() {
+  const url = String(process.env.SUPABASE_URL || '').trim();
+  const key = String(process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY || '').trim();
+  if (!url || !key) {
+    const error = new Error('請在 Vercel 設定 SUPABASE_URL 和 SUPABASE_SERVICE_ROLE_KEY。');
+    error.statusCode = 503;
+    throw error;
+  }
+  return createClient(url, key, {
+    auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false }
+  });
+}
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -16,7 +30,7 @@ module.exports = async function handler(req, res) {
       return;
     }
 
-    const { client } = await signInAdmin();
+    const client = serviceClient();
     const recordsResult = await client
       .from('user_records')
       .select('*')
@@ -73,6 +87,6 @@ module.exports = async function handler(req, res) {
       messages
     });
   } catch (error) {
-    json(res, 500, { error: error.message || '查詢失敗。' });
+    json(res, error.statusCode || 500, { error: error.message || '查詢失敗。' });
   }
 };

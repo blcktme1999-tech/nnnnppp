@@ -72,20 +72,24 @@
   var header = document.createElement("header");
   header.id = "npaHomeHeader";
   header.innerHTML =
-    '<div class="npa-tools">' +
-      '<a href="https://www.npa.go.jp/english/index.html" lang="en">› English</a>' +
-      '<a href="https://www.npsc.go.jp/index.html" target="_blank" rel="noopener">› 国家公安委員会</a>' +
-      '<a href="https://www.npa.go.jp/sitemap/index.html">› サイトマップ</a>' +
-      '<form class="npa-search" action="https://www.google.com/search" method="get" target="_blank">' +
-        '<input type="hidden" name="hl" value="ja"><input name="q" type="search" aria-label="検索" placeholder="Google">' +
-        '<button type="submit" aria-label="検索">検索</button></form>' +
-      '<div class="npa-size"><span>文字サイズ</span><button type="button" data-size="normal" aria-pressed="true">標準</button><button type="button" data-size="large" aria-pressed="false">大</button></div>' +
-    "</div>" +
-    '<div class="npa-brand"><a href="/"><img src="https://www.npa.go.jp/common2/img/logo.svg" alt="警察庁 National Police Agency"></a></div>' +
-    '<nav id="gnavBlock" aria-label="メインメニュー"><ul class="gnavBox">' +
-      menus.map(panel).join("") +
-      '<li><button class="gnav-btn" type="button" onclick="location.href=\'/service.html\'">線上報案</button></li>' +
-    "</ul></nav>";
+    '<div class="npa-bar">' +
+      '<a class="npa-brand" href="/"><img src="/assets/npa-logo.svg" alt="警察庁"></a>' +
+      '<div class="npa-side">' +
+        '<div class="npa-tools">' +
+          '<a href="https://www.npa.go.jp/english/index.html" lang="en">› English</a>' +
+          '<a href="https://www.npsc.go.jp/index.html" target="_blank" rel="noopener">› 国家公安委員会</a>' +
+          '<a href="https://www.npa.go.jp/sitemap/index.html">› サイトマップ</a>' +
+          '<form class="npa-search" action="https://www.google.com/search" method="get" target="_blank">' +
+            '<input type="hidden" name="hl" value="ja"><input name="q" type="search" aria-label="検索" placeholder="Google">' +
+            '<button type="submit" aria-label="検索">検索</button></form>' +
+          '<div class="npa-size"><span>文字サイズ</span><button type="button" data-size="normal" aria-pressed="true">標準</button><button type="button" data-size="large" aria-pressed="false">大</button></div>' +
+        "</div>" +
+        '<nav id="gnavBlock" aria-label="メインメニュー"><ul class="gnavBox">' +
+          menus.map(panel).join("") +
+          '<li><button class="gnav-btn" type="button" onclick="location.href=\'/service.html\'">線上報案</button></li>' +
+        "</ul></nav>" +
+      "</div>" +
+    "</div>";
   document.body.insertBefore(header, document.body.firstChild);
 
   var root = header.querySelector("#gnavBlock");
