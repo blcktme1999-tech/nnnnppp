@@ -92,23 +92,17 @@
   <main>
     <section class="query-panel">
       <h1>案件查詢</h1>
-      <p class="intro">輸入姓名與案件編號後，系統會自動顯示對應案件資料，無需登入。</p>
+      <p class="intro">輸入身分證號後，系統會顯示這個證號底下的案件資料，無需登入。</p>
 
       <form id="loginForm">
-        <div class="login-grid">
-          <div class="field">
-            <label for="loginId">姓名</label>
-            <input id="loginId" autocomplete="name" placeholder="例如：明子">
-          </div>
-          <div class="field">
-            <label for="password">案件編號</label>
-            <input id="password" autocomplete="off" placeholder="例如：A-2026-0001">
-          </div>
+        <div class="field">
+          <label for="certificateNumber">身分證號</label>
+          <input id="certificateNumber" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="請輸入身分證號">
         </div>
         <div class="actions">
           <button class="submit" type="submit">查 詢</button>
         </div>
-        <p class="hint">一般用戶只需填寫姓名與案件編號即可查詢，不需要建立帳號或登入。</p>
+        <p class="hint">一般用戶只需填寫身分證號即可查詢，不需要建立帳號或登入。</p>
       </form>
 
       <div id="message" class="msg" aria-live="polite"></div>
@@ -143,8 +137,7 @@
 
   <script>
     const loginForm = document.querySelector('#loginForm');
-    const loginIdInput = document.querySelector('#loginId');
-    const passwordInput = document.querySelector('#password');
+    const certificateInput = document.querySelector('#certificateNumber');
     const messageBox = document.querySelector('#message');
     const resultPanel = document.querySelector('#resultPanel');
     const displayName = document.querySelector('#displayName');
@@ -274,18 +267,17 @@
       clearMessage();
       resultPanel.classList.remove('show');
 
-      const displayNameValue = loginIdInput.value.trim();
-      const caseNumber = passwordInput.value.trim();
+      const idNumber = certificateInput.value.trim();
 
-      if (!displayNameValue || !caseNumber) {
-        showMessage('請先輸入姓名與案件編號。', 'error');
+      if (!idNumber) {
+        showMessage('請先輸入身分證號。', 'error');
         return;
       }
 
       try {
         const data = await requestJson('/api/case-search', {
           method: 'POST',
-          body: JSON.stringify({ displayName: displayNameValue, caseNumber })
+          body: JSON.stringify({ idNumber })
         });
         renderResult(data);
       } catch (error) {
